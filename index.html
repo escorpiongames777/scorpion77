@@ -231,57 +231,42 @@
     Te estamos conectando con nuestro equipo vía WhatsApp.
   </div>
 
-  <a
-    id="whatsapp-button"
-    class="whatsapp-button pulse"
-    target="_blank"
-    rel="noopener noreferrer"
-    href="https://wa.me/5491176300373?text=Quiero%20el%20bono%20del%2020%25%20mi%20nombre%20es"
-  >
-    <i class="fab fa-whatsapp"></i> ¡QUIERO MI BONO!
-  </a>
-
-  <div class="clientes">
-    +10.000 CLIENTES GANANDO todos los días
-  </div>
-
-  <div class="trustpilot">
-    "Excelente" ⭐⭐⭐⭐⭐ Calificación 4.9/5 en Trustpilot<br/>
-    <img src="https://logowik.com/content/uploads/images/trustpilot-stars9095.jpg" alt="Trustpilot" />
-  </div>
-
-  <div class="footer">
-    🎁 BONO ACTIVO - ¡Solicítalo ahora por WhatsApp!
-  </div>
-
   <script>
+    // Lista de líneas para rotación
     const whatsappNumbers = [
       "5491151787840", // Número 1
-      "5491176294715", // Número 2
-      "5491168798644", // Número 3
-      "55491127738497"  // Número 4
-      "5491127626671"  // Número 5
-    "5491132649467"  // Número 6
+      "5491126294715", // Número 2
+      "5491187986444", // Número 3
+      "5491142773847", // Número 4
+      "5491127626671", // Número 5
+      "5491132649467"  // Número 6
     ];
 
-    const message = "Quiero el bono del 20%";
+    // Mensaje deseado
+    const message = "quiero mi bono del 20% mi nombre es";
+
     let currentIndex = 0;
-
     const whatsappBtn = document.getElementById("whatsapp-button");
-    if (whatsappBtn) {
-      whatsappBtn.href = `https://wa.me/${whatsappNumbers[currentIndex]}?text=${encodeURIComponent(message)}`;
 
-      whatsappBtn.addEventListener("click", function () {
-        const number = whatsappNumbers[currentIndex];
-        currentIndex = (currentIndex + 1) % whatsappNumbers.length;
-        const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
-        this.setAttribute("href", url);
-        fbq('trackCustom', 'ClickWhatsApp');
+    function nextWhatsappUrl() {
+      const number = whatsappNumbers[currentIndex];
+      const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+      currentIndex = (currentIndex + 1) % whatsappNumbers.length;
+      return url;
+    }
+
+    if (whatsappBtn) {
+      // Inicializa el href para el primer click
+      whatsappBtn.setAttribute("href", nextWhatsappUrl());
+
+      // En cada click rota y abre en nueva pestaña de forma segura
+      whatsappBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        const url = nextWhatsappUrl();
+        try { fbq('trackCustom', 'ClickWhatsApp'); } catch (err) {}
+        window.open(url, "_blank", "noopener,noreferrer");
       });
     }
   </script>
 </body>
 </html>
-
-
-
