@@ -65,6 +65,90 @@
       font-weight: 800;
       font-size: 18px;
       text-decoration: none;
-      display
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+      box-shadow: 0 8px 20px rgba(37,211,102,0.25);
+    }
+
+    .whatsapp-button i {
+      margin-right: 10px;
+      font-size: 22px;
+    }
+
+    .whatsapp-button:hover {
+      transform: translateY(-2px);
+      background-color: var(--wa-green-dark);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.45); }
+      70% { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+    .pulse { animation: pulse 2.2s infinite; }
+  </style>
+</head>
+<body>
+  <div class="logo-text">RED SCORPION</div>
+
+  <section class="verified">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" />
+    <h2>✅ <b>Plataforma Verificada</b> ✅</h2>
+    <p class="green">Casino de Confianza</p>
+  </section>
+
+  <div class="message">
+    Te estamos conectando con nuestro equipo vía WhatsApp.
+  </div>
+
+  <!-- BOTÓN -->
+  <a
+    id="whatsapp-button"
+    class="whatsapp-button pulse"
+    target="_blank"
+    rel="noopener noreferrer"
+    href="#"
+  >
+    <i class="fab fa-whatsapp"></i> ¡QUIERO MI BONO!
+  </a>
+
+  <script>
+    const whatsappNumbers = [
+      "5491151787840", // Número 1
+      "5491176294715", // Número 2
+      "5491187986444", // Número 3
+      "5491142773847", // Número 4
+      "5491127626671", // Número 5
+      "5491132649467"  // Número 6
+    ];
+
+    const message = "quiero mi bono del 20% mi nombre es";
+    let currentIndex = 0;
+
+    const whatsappBtn = document.getElementById("whatsapp-button");
+
+    function nextWhatsappUrl() {
+      const number = whatsappNumbers[currentIndex];
+      const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+      currentIndex = (currentIndex + 1) % whatsappNumbers.length;
+      return url;
+    }
+
+    if (whatsappBtn) {
+      whatsappBtn.setAttribute("href", nextWhatsappUrl());
+      whatsappBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        const url = nextWhatsappUrl();
+        window.open(url, "_blank", "noopener,noreferrer");
+      });
+    }
+  </script>
+</body>
+</html>
+
 
 
