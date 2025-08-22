@@ -50,47 +50,15 @@
       padding: 20px;
     }
 
-    header {
-      margin-top: 30px;
-      text-align: center;
-    }
+    header { margin-top: 30px; text-align: center; }
+    .logo-text { color: var(--wa-green); font-weight: 700; font-size: 26px; }
 
-    .logo-text {
-      color: var(--wa-green);
-      font-weight: 700;
-      font-size: 26px;
-    }
+    hr { width: 100%; border: none; border-top: 1px solid var(--border); margin: 20px 0 10px; }
 
-    hr {
-      width: 100%;
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 20px 0 10px;
-    }
-
-    .verified {
-      text-align: center;
-      padding-top: 10px;
-    }
-
-    .verified img {
-      width: 64px;
-      height: 64px;
-      margin: 12px 0 10px;
-    }
-
-    .verified h2 {
-      font-size: 22px;
-      margin: 6px 0 4px;
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .verified .green {
-      color: var(--wa-green);
-      font-weight: 600;
-      margin: 0;
-    }
+    .verified { text-align: center; padding-top: 10px; }
+    .verified img { width: 64px; height: 64px; margin: 12px 0 10px; }
+    .verified h2 { font-size: 22px; margin: 6px 0 4px; color: var(--text); font-weight: 700; }
+    .verified .green { color: var(--wa-green); font-weight: 600; margin: 0; }
 
     .message {
       background: var(--wa-green-soft);
@@ -123,21 +91,9 @@
       min-width: 260px;
       box-shadow: 0 8px 20px rgba(37,211,102,0.25);
     }
-
-    .whatsapp-button:hover {
-      transform: translateY(-2px);
-      background-color: var(--wa-green-dark);
-      box-shadow: 0 12px 26px rgba(37,211,102,0.32);
-    }
-
-    .whatsapp-button:active {
-      transform: translateY(0);
-    }
-
-    .whatsapp-button i {
-      margin-right: 10px;
-      font-size: 22px;
-    }
+    .whatsapp-button:hover { transform: translateY(-2px); background-color: var(--wa-green-dark); box-shadow: 0 12px 26px rgba(37,211,102,0.32); }
+    .whatsapp-button:active { transform: translateY(0); }
+    .whatsapp-button i { margin-right: 10px; font-size: 22px; }
 
     @keyframes pulse {
       0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.45); }
@@ -177,44 +133,24 @@
       background: #fafafa;
       max-width: 680px;
     }
-
-    .trustpilot img {
-      margin-top: 8px;
-      max-width: 160px;
-    }
+    .trustpilot img { margin-top: 8px; max-width: 160px; }
 
     .footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: var(--wa-green);
-      color: #ffffff;
-      text-align: center;
-      padding: 10px;
-      font-weight: 800;
-      font-size: 14px;
-      letter-spacing: .2px;
+      position: fixed; bottom: 0; width: 100%;
+      background: var(--wa-green); color: #ffffff;
+      text-align: center; padding: 10px; font-weight: 800; font-size: 14px; letter-spacing: .2px;
     }
 
     @media (max-width: 600px) {
-      .whatsapp-button {
-        font-size: 16px;
-        padding: 16px 24px;
-        min-width: 220px;
-      }
-      .clientes {
-        font-size: 14px;
-        padding: 10px 16px;
-      }
-      .message {
-        font-size: 14px;
-      }
+      .whatsapp-button { font-size: 16px; padding: 16px 24px; min-width: 220px; }
+      .clientes { font-size: 14px; padding: 10px 16px; }
+      .message { font-size: 14px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo-text">RED SCORPION</div>
+    <div class="logo-text">Plataforma Verificada</div>
   </header>
 
   <hr />
@@ -229,6 +165,29 @@
 
   <div class="message">
     Te estamos conectando con nuestro equipo vía WhatsApp.
+  </div>
+
+  <a
+    id="whatsapp-button"
+    class="whatsapp-button pulse"
+    target="_blank"
+    rel="noopener noreferrer"
+    href="#"
+  >
+    <i class="fab fa-whatsapp"></i> ¡QUIERO MI BONO!
+  </a>
+
+  <div class="clientes">
+    +10.000 CLIENTES GANANDO todos los días
+  </div>
+
+  <div class="trustpilot">
+    "Excelente" ⭐⭐⭐⭐⭐ Calificación 4.9/5 en Trustpilot<br/>
+    <img src="https://logowik.com/content/uploads/images/trustpilot-stars9095.jpg" alt="Trustpilot" />
+  </div>
+
+  <div class="footer">
+    🎁 BONO ACTIVO - ¡Solicítalo ahora por WhatsApp!
   </div>
 
   <script>
@@ -270,3 +229,4 @@
   </script>
 </body>
 </html>
+
